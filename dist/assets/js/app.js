@@ -290,17 +290,45 @@
 
 
     /*----------- BEGIN CHART CODE -------------------------*/
-    var sin = [], cos = [];
-    for (var i = 0; i < 14; i += 0.5) {
-        sin.push([i, Math.sin(i)]);
-        cos.push([i, Math.cos(i)]);
-    }
+    // var sin = [], cos = [];
+    // for (var i = 0; i < 14; i += 0.5) {
+    //     sin.push([i, Math.sin(i)]);
+    //     cos.push([i, Math.cos(i)]);
+    // }
+    var sin = [
+        [1, 14],
+        [2, 6],
+        [3, 25],
+        [4, 22],
+        [5, 15],
+        [6, 22],
+        [7, 30],
+        [8, 26],
+        [9, 45],
+        [10, 50],
+        [11, 41],
+        [12, 13],
+    ];
+    var cos = [
+        [1, 1572],
+        [2, 906],
+        [3, 3947],
+        [4, 3552],
+        [5, 2365],
+        [6, 3050],
+        [7, 4915],
+        [8, 4345],
+        [9, 6815],
+        [10, 7840],
+        [11, 6495],
+        [12, 2383]
+    ];
 
     var plot = $.plot($("#trigo"),
             [
                 {
                     data: sin,
-                    label: "sin(x)",
+                    label: "張數",
                     points: {
                         fillColor: "#4572A7",
                         size: 5
@@ -309,12 +337,13 @@
                 },
                 {
                     data: cos,
-                    label: "cos(x)",
+                    label: "總金額",
                     points: {
                         fillColor: "#333",
                         size: 35
                     },
-                    color: '#AA4643'
+                    color: '#AA4643',
+                    yaxis: 2
                 }
             ], {
         series: {
@@ -329,9 +358,9 @@
             hoverable: true,
             clickable: true
         },
-        yaxis: {
-            min: -1.2,
-            max: 1.2
+        yaxes: [{ }, { position: "right", } ],
+        xaxis: {
+            tickSize: 1
         }
     });
 
